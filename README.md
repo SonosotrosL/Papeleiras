@@ -4,10 +4,11 @@ Site estático (sem build). Suba a pasta inteira no GitHub e importe no Vercel c
 
 Estrutura: `index.html`, `js/` (app e bibliotecas), `tess/` (leitor de texto), `hp/` (leitor de alta precisão). As pastas `tess` e `hp` precisam ir juntas.
 
-Saídas:
-- PDF: capa, quadro resumo por bairro e por dia, fotos (1 foto = 1 papeleira, código S-001 / N-001 / 001) e tabela de georreferenciamento.
-- CSV `QUADRO RESUMO DE INSTALAÇÃO DE PAPELEIRAS`: BAIRRO;BASE;QTD_PAPELEIRAS;PERCENTUAL;QTD_COM_COORDENADA;PRIMEIRA_DATA;ULTIMA_DATA.
-- CSV `TABELA DE GEORREFERENCIAMENTO DAS PAPELEIRAS`: ID;DATA;HORA;LOCAL;ENDERECO;BAIRRO;BASE;LATITUDE;LONGITUDE;UTM_E;UTM_N;FUSO;FONTE_COORD;REGISTRO;ARQUIVO_FOTO.
+Saídas (no padrão do Termo de Entrega):
+- PDF: capa, relatório descritivo, QUADRO RESUMO DE INSTALAÇÃO DE PAPELEIRAS (histórico + locais novos, totais por ano), TABELA DE GEOREFERENCIAMENTO DAS PAPELEIRAS (numeração contínua), relatório fotográfico por local e página final.
+- CSV do quadro resumo: SEQ;LOCAL;ANO;QUANTIDADE + totais.
+- CSV da tabela: IDENTIFICACAO;LONGITUDE;LATITUDE;LOGRADOURO;BAIRRO;UTM_E;UTM_N;DATA;HORA;ENDERECO;FONTE_COORD;ARQUIVO_FOTO.
+- Histórico fica no navegador; use "Exportar histórico" para levar a outro computador e "Somar este relatório ao histórico" ao fechar o mês.
 
 QGIS: Camada → Adicionar camada → Texto delimitado · delimitador ";" · X = LONGITUDE, Y = LATITUDE · EPSG:4326 (ou UTM_E/UTM_N com EPSG:31982).
 
